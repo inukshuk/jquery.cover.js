@@ -72,7 +72,7 @@
 	$.fn[cover].supported = (function () {
 		var e = document.createElement('div');
 		e.style.cssText = 'background-size:cover;';
-		return e.style.backgroundSize === 'cover' && false;
+		return e.style.backgroundSize === 'cover';
 	})();
 	
 	$.fn[cover].version = version;

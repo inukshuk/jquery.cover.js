@@ -11,13 +11,18 @@ Usage
 
     $('#container').cover('background.png');
 
-In this example, the file 'background.png' will loaded and, once the download
+In this example, the file 'background.png' will be loaded and, once the download
 is complete, it will be set as the background of the element with id
 'container' using the CSS3 property `background-size: cover`; if the browser
 does not support the property, a new image element will be inserted into
 the container, scaled to cover the element completely, and positioned
-horizontally and vertically centered. If you wish to override the positioning
-you can do so by passing the appropriate options. For example:
+horizontally and vertically centered.
+
+Additionally, if the CSS3 property is not available, the inserted image's
+dimensions will be re-calculated whenever the main window is resized.
+
+If you wish to override the positioning you can do so by passing the
+appropriate options. For example:
 
     $('#container').cover({
       src: 'background.png',
@@ -37,5 +42,5 @@ License
 
 Copyright 2011 Sylvester Keil and Johannes Krtek.
 
-jquery.activate.js is distributed under the MIT license. See LICENSE for
+jquery.cover.js is distributed under the MIT license. See LICENSE for
 details.
