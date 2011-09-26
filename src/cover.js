@@ -4,13 +4,13 @@
 	my.resize = function (image, iw, ih, w, h, position) {
 		if (iw / ih < w / h) {
 			image.width = w;
-			delete image.height;
+			// delete image.height;
 			$(image).removeAttr('height');
 			image.style.cssText = 'top:' + ((/center/).test(position.split(/\s+/)[1]) ? -0.5 * image.height : 0) + 'px';
 		}
 		else {
 			image.height = h;
-			delete image.width;
+			// delete image.width;
 			$(image).removeAttr('width');
 			image.style.cssText = 'left:' + ((/center/).test(position.split(/\s+/)[0]) ? -0.5 * image.width : 0) + 'px';
 		}
