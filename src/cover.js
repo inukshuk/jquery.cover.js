@@ -1,14 +1,18 @@
 ;(function ($, window, document, cover, version, undefined) {
 	var my = {};
 	
-	my.resize = function (image, w, h, position) {
-		if (image.width / image.height < w / h) {
-			image.style.cssText = 'width:100%;top:' +
-				((/center/).test(position.split(/\s+/)[1]) ? -0.5 * image.height : 0) + 'px';
+	my.resize = function (image, iw, ih, w, h, position) {
+		if (iw / ih < w / h) {
+			image.width = w;
+			delete image.height;
+			$(image).removeAttr('height');
+			image.style.cssText = 'top:' + ((/center/).test(position.split(/\s+/)[1]) ? -0.5 * image.height : 0) + 'px';
 		}
 		else {
-			image.style.cssText = 'height:100%;left:' +
-				((/center/).test(position.split(/\s+/)[0]) ? -0.5 * image.width : 0) + 'px';
+			image.height = h;
+			delete image.width;
+			$(image).removeAttr('width');
+			image.style.cssText = 'left:' + ((/center/).test(position.split(/\s+/)[0]) ? -0.5 * image.width : 0) + 'px';
 		}
 	};
 		
@@ -45,13 +49,13 @@
 				}
 				else {
 					elements.each(function () {
-						var e = $(this);
+						var e = $(this), w  = image.width, h = image.height;
 
-						my.resize(image, e.width(), e.height(), options.position);
+						my.resize(image, w, h, e.width(), e.height(), options.position);
 						e.css({ overflow: 'hidden' }).prepend(image);
 						
 						$(window).bind('resize.cover', function () {
-							my.resize(image, e.width(), e.height());
+							my.resize(image, w, h, e.width(), e.height());
 						});
 					});
 				}
