@@ -81,4 +81,4 @@
 	
 	$.fn[cover].version = version;
 	
-})(jQuery, this, this.document, 'cover', '0.1');
+})(jQuery, this, this.document, 'cover', '0.2');
