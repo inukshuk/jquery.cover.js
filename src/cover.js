@@ -55,7 +55,7 @@
 						e.css({ overflow: 'hidden' }).prepend(image);
 						
 						$(window).bind('resize.cover', function () {
-							my.resize(image, w, h, e.width(), e.height());
+							my.resize(image, w, h, e.width(), e.height(), options.position);
 						});
 					});
 				}
@@ -81,4 +81,4 @@
 	
 	$.fn[cover].version = version;
 	
-})(jQuery, this, this.document, 'cover', '0.2');
+})(jQuery, this, this.document, 'cover', '0.3');
