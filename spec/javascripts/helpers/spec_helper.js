@@ -1,6 +1,6 @@
-beforeEach(function () {
-  this.addMatchers({
-    toBeCovered: function (ee) {
-    }
-  });
-});
+// beforeEach(function () {
+//   this.addMatchers({
+//     toBeCovered: function (ee) {
+//     }
+//   });
+// });
